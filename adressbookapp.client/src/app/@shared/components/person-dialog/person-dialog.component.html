@@ -1,0 +1,12 @@
+<h1 mat-dialog-title class="dialog-title">
+  {{data.name}}
+  <button mat-icon-button tabindex="-1" (click)="onNoClick()" style="float: right; color: red; padding: 0;">
+    <mat-icon style="vertical-align: middle;" aria-hidden="false" aria-label="close icon" fontIcon="close"></mat-icon>
+  </button>
+</h1>
+<div mat-dialog-content>
+  <strong>Address:</strong>
+  <div class="address-content">
+    {{data.address}}
+  </div>
+</div>

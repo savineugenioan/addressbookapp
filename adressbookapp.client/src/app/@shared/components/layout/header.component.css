@@ -1,0 +1,29 @@
+mat-toolbar {
+  height: 64px;
+}
+
+.img-fluid {
+  max-height: 50px;
+}
+.title {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+a:hover,
+a:active {
+  color: lightgrey;
+}
+.mat-tab-link {
+  color: white;
+
+}
+.mat-tab-label-active{
+  opacity: 1;
+}

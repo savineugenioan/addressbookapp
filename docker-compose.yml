@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  adressbookapp.client:
+    image: ${DOCKER_REGISTRY-}adressbookappclient
+    build:
+        context: .
+        dockerfile: adressbookapp.client/Dockerfile
+        args:
+            deploy_type: development
+    depends_on:
+       adressbookapp.server:
+            condition: service_started
+    ports:
+        - "4200:80" 
+  adressbookapp.server:
+    image: ${DOCKER_REGISTRY-}adressbookappserver
+    build:
+      context: .
+      dockerfile: AdressBookApp.Server/Dockerfile
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_URLS=http://+:8080
+        - ConnectionStrings__DefaultConnection=Server=adressbookapp.sqlserver;Database=AddressBookDemo;User ID=sa;Password=P@ssw0rd;Persist Security Info=False;Encrypt=False;
+    ports:
+        - "5284:8080"
+    depends_on:
+        adressbookapp.sqlserver:
+            condition: service_started
+
+  adressbookapp.sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=P@ssw0rd
+      - ACCEPT_EULA=Y
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:

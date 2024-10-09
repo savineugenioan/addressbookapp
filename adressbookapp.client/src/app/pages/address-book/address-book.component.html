@@ -1,0 +1,27 @@
+<div class="address-book-container">
+  <mat-toolbar color="primary">
+    Address Book
+  </mat-toolbar>
+
+  <mat-card class="people-list" *ngIf="paginatedPeople.length > 0; else peoplePlaceHolder">
+    <mat-list>
+      <mat-list-item *ngFor="let person of paginatedPeople" (click)="showAddress(person)" class="person-item">
+        {{ person.name }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <ng-template #peoplePlaceHolder>
+    <mat-card class="empty-message">
+      <mat-card-content>
+        <strong>No person found!</strong>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+
+  <mat-paginator [length]="people.length"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

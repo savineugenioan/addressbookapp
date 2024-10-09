@@ -1,0 +1,13 @@
+﻿<div class="my-overlay" *ngIf="showOverlay">
+  <app-loading></app-loading>
+</div>
+
+<div id="main-container" #main fxLayout="column" fxFlexFill>
+  <app-layout-header></app-layout-header>
+
+  <div fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-layout-footer [long]='true'></app-layout-footer>
+</div>
