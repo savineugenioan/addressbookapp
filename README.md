@@ -4,7 +4,7 @@ This app is merely a demonstration. The following projects are included in the s
 
 1. **AddressBookApp.Server** - A .Net Minimal API project.
 2. **addressbookapp.client** - The client application written in Angular.
-3. **AddressBookDemo** - SQL Server Database Project. Since the solution is already set up to establish a local database and seed data into it for display purposes, using this project is not required.
+3. **AddressBookDemo** - SQL Server Database Project. Since the solution is already set up to establish a local database and seed data into it for display purposes, this project should not be published.
 4. **AddressBookApp.tests** - NUnit Test Project - Contains the unit tests.
 5. **docker-compose** - Used to orchestrate the solution. This will also create a Sql Server container exposed on 1434.
 Set "SeedDatabase" to "0" to stop seeding data on application start.
